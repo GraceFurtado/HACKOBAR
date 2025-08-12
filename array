@@ -21,38 +21,44 @@ console.log("Q1:",q1);
 const q2=students.map(s=> ({name: s.name,course: s.course}));
 console.log("Q2:",q2);
 
-const withStatus=students.map(s=>({
-   ...s,
-   status:s.marks<60?"Fail":"pass"}));
-   console.log("with status:",withStatus);
+students.map((el)=>{
+    if(el.marks>=60){
+        el.status="pass";
+    }
+    else{
+        el.status="fail";
+    }
+})
+console.log(students);
 
-   const nameCourseStringConcat=students.map(s=>s.name.concat("-",s.course));
-   console.log("Name-Course Strings(concat):",nameCourseStringConcat);
 
-  const marksIncreased=students.map(s=>({...s,
-   marks:s.marks+5
-   }));
-   console.log("Marks increased:",marksIncreased);
+   const con=students.map(s=>s.name.concat("-",s.course));
+   console.log("Name-Course Strings(concat):",con);
+
+  students.map((el)=>{
+   el.marks=el.marks+5;
+   });
+   console.log(students);
 
   
-const csStudents = students.filter(s => s.course === "Computer Science");
-console.log("Computer Science Students:", csStudents);
+const cs = students.filter(s => s.course === "Computer Science");
+console.log("Computer Science Students:",cs);
 
 
 const above80 = students.filter(s => s.marks > 80);
 console.log("Marks above 80:", above80);
 
 
-const feesNotPaid = students.filter(s => s.feesPaid === false);
-console.log("Fees Not Paid:", feesNotPaid);
+const feespd = students.filter(s => s.feesPaid === false);
+console.log("Fees Not Paid:", feespd);
 
 
-const ageMarks = students.filter(s => s.age > 20 && s.marks > 70);
-console.log("Age > 20 & Marks > 70:", ageMarks);
+const am = students.filter(s => s.age > 20 && s.marks > 70);
+console.log("Age > 20 & Marks > 70:", am);
 
 
-const mechBelow85 = students.filter(s => s.course === "Mechanical" && s.marks < 85);
-console.log("Mechanical & Marks < 85:", mechBelow85);
+const mechbl85 = students.filter(s => s.course === "Mechanical" && s.marks < 85);
+console.log("Mechanical & Marks < 85:", mechbl85);
 
 let j=students.reduce((acc,num)=>{
     return acc+num.marks},0);
@@ -81,7 +87,13 @@ let j=students.reduce((acc,num)=>{
                     acc[num.course]=[];
 
                 }
-                acc[num.course].push(num);
+                acc[num.course].(num);
             return acc;
                     },{});
                     console.log("grouped:",a);
+    
+
+
+
+
+
